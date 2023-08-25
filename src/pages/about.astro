@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | The M3 Preservation Society" description="About The M3 Preservation Society">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about The M3 Preservation Society and our background."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/m3.jpg"
+					alt="E30 M3 parked at Goodwood circa Dec 2005"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						Welcome to the M3 Preservation Society, a haven for enthusiasts, collectors, and fans of the iconic BMW M3. Founded by Russell Smith in 2023, a long-time M3 lover, our community celebrates the legacy, performance, and aesthetics of these remarkable machines.
+				  </p>
+					<p>
+						Russ's passion for the M3 began with his ownership of a modified E30 M3, the model that started it all, and continued with the manual F80 M3. His love for the M3 transcends mere ownership; it's a connection to engineering excellence and driving purity.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Our mission</h2>
+				<div class="content">
+					<p>The M3 Preservation Society aims to:</p>
+
+					<ul>
+						<li>Celebrate: Embrace the heritage and lineage of the M3, from the original E30 to the latest iterations.</li>
+						<li>Preserve: Encourage proper care, restoration, and appreciation for these unique vehicles.</li>
+						<li>Connect: Build a community of like-minded enthusiasts, providing a platform for sharing experiences, knowledge, and the joy of driving an M3.</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Join Us</h2>
+				<div class="content">
+					<p>Whether you're an owner, admirer, or simply curious about the M3, we welcome you to join our community. Together, we'll drive the legacy of the M3 into the future.</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
